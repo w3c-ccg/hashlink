@@ -145,15 +145,21 @@ application cannot be upgraded to support the RECOMMENDED encoding.
     </t>
     <section anchor="resource-hash" title="The Resource Hash">
       <t>
-TBD - resource hash
+The resource hash is the the mechanism that enables content integrity
+protection for the associated data stream. The resource hash value MUST be
+provided in a hashlink. To generate the value of the resource hash, the
+resource data is processed by a cryptographic hashing algorithm, encoded using
+the multihash data format, and then base-encoded using the multibase data
+format. For example, the following hashlink expresses the data "Hello World!"
+processed using the SHA-2, 256 bit, 32 byte output format which is then
+expressed using the base-58 Bitcoin base encoding format:
         <figure>
-          <artwork></artwork>
+          <artwork>TBD</artwork>
         </figure>
       </t>
     </section>
     <section anchor="metadata" title="The Optional Metadata">
       <t>
-TBD - optional metadata
       </t>
       <section anchor="metadata" title="URLs">
         <t>
