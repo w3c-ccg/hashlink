@@ -300,6 +300,26 @@ content type of "text/plain":
       </section>
     </section>
   </section>
+
+  <section anchor="processors" title="Hashlink Encoders and Decoders">
+    <t>
+Hashlink encoders and decoders MUST support the following core algorithms:
+    </t>
+    <list style="numbers">
+      <t>
+The SHA-2, 256 bit, 32 byte output cryptographic hashing algorithm and the
+associated Multihash Data Format.
+      </t>
+      <t>
+The Bitcoin base58-encoding and decoding algorithm and the associated Multibase
+Data Format.
+      </t>
+    </list>
+    <t>
+Implementations MAY support algorithms and data formats in addition to the ones
+listed above.
+    </t>
+  </section>
 </middle>
 
 <back>
@@ -317,9 +337,7 @@ content type of "text/plain":
   <section anchor="appendix-a" title="Security Considerations">
     <t>
 There are a number of security considerations to take into account when
-implementing or utilizing this specification.
-
-TBD
+implementing or utilizing this specification: TBD
     </t>
   </section>
   <section anchor="appendix-c" title="Test Values">
