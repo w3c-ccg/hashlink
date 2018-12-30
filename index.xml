@@ -73,7 +73,52 @@ or be sent to
 <middle>
   <section anchor="intro" title="Introduction">
     <t>
-TBD - introduction
+Uniform Resource Locators (URLs) enable software developers to build
+distributed systems that are able to publish information using hyperlinks.
+When a client fetches a resource at the given hyperlink, the result is
+typically a stream of data that the client may further process. Due to the
+design of most hyperlinks, the data associated with a hyperlink may change
+over time. This design feature is often not an issue for systems that
+do not depend on static data.
+    </t>
+    <t>
+Some software systems expect data published at a specific URL to not change.
+For example, firmware files, operating system releases, security upgrades,
+and other high-risk files are often distributed with associated manifest files.
+These manifest files typically utilize a cryptographic hash per URL to
+ensure that an attack to modify the files themselves will be detected:
+      <figure>
+        <artwork>
+b1a653e5...de5d3e8f3  https://example.com/operating-system.iso
+7b23bf52...557a0902c  https://example.com/firmware-v4.35.bin
+        </artwork>
+      </figure>
+    </t>
+    <t>
+An unfortunate downside of the manifest file approach is that a separate system
+from the URL itself must be utilized to add this level of content integrity
+protection. In addition, the cryptographic hash format for the files are often
+application specific and are not easily upgradeable once newer and more
+advanced cryptographic hash formats are standardized.
+    </t>
+    <t>
+New types of distributed file storage networks have been deployed over the
+past several decades. Examples include HTTP file mirrors for the Debian
+Operating System, peer-to-peer file networks such as BitTorrent, and
+content-addressed networks, such as the Inter Planetary File System (IPFS).
+While each one of these systems have their own URL format, it is currently not
+possible to express a content-addressed URL that associates the content
+address to a file published on each one of these networks.
+    </t>
+    <t>
+This specification provides a simple data model and serialization formats
+for cryptographic hyperlinks that:
+      <list style="symbols">
+         <t>Enable existing URLs to add content integrity protection.</t>
+         <t>Provide a URL format for multi-sourced content integrity protected data.</t>
+         <t>Enable URL metadata to be discarded without having to re-encode the URL.</t>
+         <t>Enable algorithm agility for all data model components</t>
+      </list>
     </t>
   </section>
   <section anchor="format" title="Hashlink Data Model">
@@ -94,7 +139,9 @@ parameters:
     </t>
 
     <t>
-TBD - refs to multihash and multibase
+Implementers should take note that the URL parameter-based encoding mechanism
+is application specific and SHOULD NOT be used unless the URL resolver for the
+application cannot be upgraded to support the RECOMMENDED encoding.
     </t>
     <section anchor="resource-hash" title="The Resource Hash">
       <t>
