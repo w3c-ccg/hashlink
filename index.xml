@@ -207,7 +207,7 @@ Output the multibase hash as the resource hash.
 The example below demonstrates the output of the algorithm above for a
 hashlink that expresses the data "Hello World!" processed using the
 SHA-2, 256 bit, 32 byte cryptographic algorithm which is then expressed using
-the base-58 Bitcoin base encoding format:
+the base-58 Bitcoin base-encoding format:
           <figure>
             <artwork>TBD</artwork>
           </figure>
@@ -215,25 +215,36 @@ the base-58 Bitcoin base encoding format:
       </section>
       <section anchor="url-pattern" title="Serializing the Metadata">
         <t>
-To generate the value for the metadata, the metadata is encoded in the CBOR
-data format using the following algorithm:
+To generate the value for the metadata, the metadata values are encoded in
+the CBOR data format using the following algorithm:
         </t>
         <list style="numbers">
           <t>
-
+Create the raw output map (CBOR major type 5).
           </t>
           <t>
-
+If at least one URL exists, add a CBOR key of 15 (0x0f) to the raw output map
+with a value that is an array (CBOR major type 4).
+            <list style="numbers">
+              <t>
+Encode each URL as a CBOR URI (CBOR type 32) and place it into the array.
+              </t>
+            </list>
           </t>
           <t>
-
+If the content type exists, add a CBOR key of 14 (0x0e) to the raw output
+map with a value that is a UTF-8 byte string (0x6) and the
+value of the content type.
           </t>
           <t>
-
+Generate the multibase value by encoding the raw output map using the
+Multibase Data Format.
           </t>
         </list>
-
         <t>
+The example below demonstrates the output of the algorithm above for metadata
+containing a single URL with a content type of "text/plain" expressed using
+the base-58 Bitcoin base-encoding format:
           <figure>
             <artwork>TBD</artwork>
           </figure>
@@ -242,9 +253,11 @@ data format using the following algorithm:
 
       <section anchor="fields" title="A Simple Hashlink Example">
         <t>
-TBD - hashlink example
+The example below demonstrates a simple hashlink that provides content
+integrity protection for the "http://example.org/hw.txt" file, which has a
+content type of "text/plain":
           <figure>
-            <artwork></artwork>
+            <artwork>hl:TBD:TBD</artwork>
           </figure>
         </t>
       </section>
