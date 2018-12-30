@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rfc PUBLIC "-//IETF//DTD RFC 2629//EN" "http://xml.resource.org/authoring/rfc2629.dtd" [
+  <!ENTITY rfc2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+  <!ENTITY rfc4648 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4648xml">
+  <!ENTITY rfc6234 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6234.xml">
+  <!ENTITY rfc6150 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6150.xml">
+  <!ENTITY rfc6151 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6151.xml">
+  <!ENTITY rfc7693 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7693.xml">
+]>
+<?xml-stylesheet type="text/xsl" href="rfc2629.xsl" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<?rfc toc="yes" ?>
+<?rfc sortrefs="yes" ?>
+<?rfc symrefs="yes" ?>
+<rfc category="std" ipr="trust200902" submissionType="independent"
+  docName="draft-sporny-hashlink-00">
+<front>
+
+  <title>Cryptographic Hyperlinks</title>
+
+  <author initials="M.S." surname="Sporny" fullname="Manu Sporny">
+    <organization>Digital Bazaar</organization>
+    <address>
+      <postal>
+        <street>203 Roanoke Street W.</street>
+        <city>Blacksburg</city>
+        <region>VA</region>
+        <code>24060</code>
+        <country>US</country>
+      </postal>
+      <phone>+1 540 961 4469</phone>
+      <email>msporny@digitalbazaar.com</email>
+      <uri>http://manu.sporny.org/</uri>
+    </address>
+  </author>
+
+  <date month="December" year="2018" />
+  <area>Security</area>
+  <workgroup />
+  <keyword>hyperlink</keyword>
+  <keyword>cryptography</keyword>
+  <keyword>security</keyword>
+
+  <abstract>
+    <t>
+When using a hyperlink to fetch a resource from the Internet, it is often useful
+to know if the resource has changed since the data was published. Cryptographic
+hashes, such as SHA-256, are often used to determine if published data has
+changed in unexpected ways. Due to the nature of most hyperlinks, the
+cryptographic hash is often published separately from the link itself.
+This specification describes a data model and serialization formats for
+expressing cryptographically protected hyperlinks. The mechanisms described
+in the document enables a system to publish a hyperlink in a way that
+empowers a consuming application to determine if the resource associated with
+the hyperlink has changed in unexpected ways.
+    </t>
+  </abstract>
+
+  <note title="Feedback">
+    <t>
+This specification is a work product of the
+<eref target="https://w3c-dvcg.github.io/">W3C Digital Verification Community Group</eref>
+and the
+<eref target="https://w3c-ccg.github.io/">W3C Credentials Community Group</eref>.
+Feedback related to this specification should be logged in the
+<eref target="https://github.com/w3c-dvcg/multibase/issues">issue tracker</eref>
+or be sent to
+<eref target="mailto:public-credentials@w3.org">public-credentials@w3.org</eref>.
+</t>
+  </note>
+</front>
+<middle>
+  <section anchor="intro" title="Introduction">
+    <t>
+TBD - introduction
+    </t>
+  </section>
+  <section anchor="format" title="Hashlink Data Model">
+    <t>
+A hashlink can be encoded in two different ways, the RECOMMENDED way to
+express a hashlink is:
+      <figure>
+        <artwork>hl:&lt;resource-hash&gt;:&lt;optional-metadata&gt;</artwork>
+      </figure>
+    </t>
+    <t>
+To enable existing applications utilizing historical URL schemes to provide
+content integrity protection, hashlinks may also be encoded using URL
+parameters:
+      <figure>
+        <artwork>&lt;url&gt;?hl=&lt;resource-hash&gt;</artwork>
+      </figure>
+    </t>
+
+    <t>
+TBD - refs to multihash and multibase
+    </t>
+    <section anchor="resource-hash" title="The Resource Hash">
+      <t>
+TBD - resource hash
+        <figure>
+          <artwork></artwork>
+        </figure>
+      </t>
+    </section>
+    <section anchor="metadata" title="The Optional Metadata">
+      <t>
+TBD - optional metadata
+      </t>
+      <section anchor="metadata" title="URLs">
+        <t>
+        </t>
+      </section>
+      <section anchor="metadata" title="Content Type">
+        <t>
+        </t>
+      </section>
+    </section>
+  </section>
+
+  <section anchor="format" title="Hashlink Serialization">
+    <t>
+TBD - serialization
+    </t>
+
+    <section anchor="url-pattern" title="CBOR">
+      <t>
+TBD - CBOR Serialization
+      </t>
+      <section anchor="fields" title="A Simple Hashlink Example">
+        <t>
+TBD - hashlink example
+          <figure>
+            <artwork></artwork>
+          </figure>
+        </t>
+      </section>
+    </section>
+
+    <section anchor="url-pattern" title="URL Parameters">
+      <t>
+TBD - URL Parameter Serialization
+      </t>
+      <section anchor="fields" title="Hashlink Encoded as URL Parameters">
+        <t>
+TBD - hashlink as encoded URL parameters example
+          <figure>
+            <artwork></artwork>
+          </figure>
+        </t>
+      </section>
+    </section>
+  </section>
+</middle>
+
+<back>
+  <references title="Normative References">
+&rfc2119;
+&rfc6234;
+&rfc7693;
+  </references>
+
+  <references title="Informative References">
+&rfc6150;
+&rfc6151;
+  </references>
+
+  <section anchor="appendix-a" title="Security Considerations">
+    <t>
+There are a number of security considerations to take into account when
+implementing or utilizing this specification.
+
+TBD
+    </t>
+  </section>
+  <section anchor="appendix-c" title="Test Values">
+
+    <t>
+TBD - test values
+    </t>
+
+    <section anchor="tv-" title="">
+      <t>
+        <artwork>
+        </artwork>
+      </t>
+    </section>
+
+  </section>
+  <section anchor="acknowledgements" title="Acknowledgements">
+    <t>
+The editors would like to thank the following individuals for feedback on and
+implementations of the specification (in alphabetical order):
+    </t>
+  </section>
+</back>
+</rfc>
