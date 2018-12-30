@@ -1,15 +1,16 @@
 ## Hashlinks - Cryptographic Hyperlinks
 
-When examining a hyperlink to a resource on the Internet, it is often useful
-to know if the resource has changed since the data was published at the given
-hyperlink. Cryptographic hashes, such as SHA-256, are often used to determine
-if published data has changed in unexpected ways.
+When using a hyperlink to fetch a resource from the Internet, it is often useful
+to know if the resource has changed since the data was published. Cryptographic
+hashes, such as SHA-256, are often used to determine if published data has
+changed in unexpected ways. Due to the nature of most hyperlinks, the
+cryptographic hash is often published separately from the link itself.
 
 This specification describes a data model and serialization formats for
-expressing cryptographic hyperlinks. The mechanisms described in the
-document enable a system to publish a hyperlink in a way that empowers a
-consuming application to determine if the contents at the hyperlink
-have changed in unexpected ways.
+expressing cryptographically protected hyperlinks. The mechanisms described
+in the document enables a system to publish a hyperlink in a way that
+empowers a consuming application to determine if the resource associated with
+the hyperlink has changed in unexpected ways.
 
 While mechanisms such as [RFC6920](https://tools.ietf.org/html/rfc6920) and
 [Magnet Links](https://en.wikipedia.org/wiki/Magnet_URI_scheme) exist, they
@@ -18,7 +19,7 @@ narrow use cases, and no clear extensibility or upgrade path.
 
 This specification attempts to preserve the good parts of
 [RFC6920](https://tools.ietf.org/html/rfc6920), standardize the good parts of
-[Magnet Links](https://en.wikipedia.org/wiki/Magnet_URI_scheme), and do so
+[Magnet Links](https://en.wikipedia.org/wiki/Magnet_URI_scheme),
 while ensuring that implementation complexity is kept to a minimum.
 
 You can view an HTML version of the specification here:
