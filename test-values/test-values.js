@@ -17,11 +17,23 @@ const exampleMb = multibase.encode('base58btc', exampleMh);
 console.log('HW Example - SHA-2 Multibase Multihash:', exampleMb.toString());
 
 // generate CBOR metadata
-const exampleMdMap = new Map();
-const exampleUrl = new url.parse('http://example.org/hw.txt');
+let exampleMdMap = new Map();
+let exampleUrl = url.parse('http://example.org/hw.txt');
 exampleMdMap.set(0xf, [exampleUrl]);
 exampleMdMap.set(0xe, 'text/plain');
-const exampleCborMd = cbor.encode(exampleMdMap);
+let exampleCborMd = cbor.encode(exampleMdMap);
 //console.log("CBOR DECODE", cbor.decode(exampleCborMd));
-const exampleCborMdMb = multibase.encode('base58btc', exampleCborMd);
+let exampleCborMdMb = multibase.encode('base58btc', exampleCborMd);
 console.log('HW Example - Metadata:', exampleCborMdMb.toString());
+
+// generate CBOR metadata for tv-multisource
+exampleMdMap = new Map();
+exampleMdMap.set(0xf, [
+  url.parse('http://example.org/hw.txt'),
+  url.parse('ipfs:/ipfs/QmXfrS3pHerg44zzK6QKQj6JDk8H6cMtQS7pdXbohwNQfK/hello'),
+  url.parse('http://c4m3g2upq6pkufl4.onion/hworld.txt')
+]);
+exampleCborMd = cbor.encode(exampleMdMap);
+//console.log("CBOR DECODE", cbor.decode(exampleCborMd));
+exampleCborMdMb = multibase.encode('base58btc', exampleCborMd);
+console.log('tv-multisource Example - Metadata:', exampleCborMdMb.toString());
