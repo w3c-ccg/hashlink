@@ -1,0 +1,29 @@
+{
+  "name": "hashlink-test-vectors",
+  "version": "0.1.0",
+  "description": "Hashlink Test Vectors",
+  "private": true,
+  "dependencies": {
+    "bs58": "^4.0.1",
+    "cbor": "^4.1.4",
+    "multibase": "^0.6.0",
+    "multihashes": "^0.4.14"
+  },
+  "scripts": {
+    "test": "node test-values.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w3c-dvcg/hashlink.git"
+  },
+  "keywords": [
+    "cryptography",
+    "content integrity"
+  ],
+  "author": "Manu Sporny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w3c-dvcg/hashlink/issues"
+  },
+  "homepage": "https://github.com/w3c-dvcg/hashlink#readme"
+}
