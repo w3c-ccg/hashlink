@@ -371,12 +371,43 @@ implementing or utilizing this specification: TBD
   <section anchor="appendix-c" title="Test Values">
 
     <t>
-TBD - test values
+The following test values may be used to verify the conformance of Hashlink
+encoders and decoders.
     </t>
 
-    <section anchor="tv-" title="">
+    <section anchor="tv-simple" title="Simple Hashlink URL">
       <t>
+The following Hashlink URL encodes the data "Hello World!" served from the
+"http://example.org/hw.txt" URL with a content type of "text/plain". The
+resource hash is generated using the SHA-2, 256 bit, 32 byte cryptographic
+algorithm which is then encoded using the base-58 Bitcoin base-encoding format.
+The metadata options are encoded using the base-58 Bitcoin base-encoding format.
+The final Hashlink URL is (new lines added for readability purposes):
         <artwork>
+hl:
+zQmWvQxTqbG2Z9HPJgG57jjwR154cKhbtJenbyYTWkjgF3e:
+zuh8iaLobXC8g9tfma1CSTtYBakXeSTkHrYA5hmD4F7dCLw8XYwZ1GWyJ3zwF
+        </artwork>
+      </t>
+    </section>
+
+    <section anchor="tv-multisource" title="Multi-sourced Hashlink URL">
+      <t>
+The following Hashlink URL encodes the data "Hello World!" served from three
+different networks. The first is a standard Web-based URL
+("http://example.org/hw.txt"), the second is an IPFS-based URL
+("ipfs:/ipfs/QmXfrS3pHerg44zzK6QKQj6JDk8H6cMtQS7pdXbohwNQfK/hello"), and
+the third is a Tor-based URL ("http://c4m3g2upq6pkufl4.onion/hworld.txt"). The
+resource hash is generated using the SHA-2, 256 bit, 32 byte cryptographic
+algorithm which is then encoded using the base-58 Bitcoin base-encoding format.
+The metadata options are encoded using the base-58 Bitcoin base-encoding format.
+The final Hashlink URL is (new lines added for readability purposes):
+        <artwork>
+hl:
+zQmWvQxTqbG2Z9HPJgG57jjwR154cKhbtJenbyYTWkjgF3e:
+z333PdTakFeJueF2bim3PaaDqbtqjkpxUc8ETSWXe6dQLWXQWvqiUdw8TJrncx3uKhwfc
+88MtM5xZbR27FhVRUKv9ogekamVtdE3UbXnXpMRT1AseCtoBUt1NE8x2SsnJxGfiZN45V
+VSCp6jh4dgcufL16tWrHREiSYESEGP1J75yXCvAdvKPr7nb5aYujLeay8Ww
         </artwork>
       </t>
     </section>
