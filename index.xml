@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-sporny-hashlink-01">
+  docName="draft-sporny-hashlink-02">
 <front>
 
   <title>Cryptographic Hyperlinks</title>
@@ -229,7 +229,7 @@ the base-58 Bitcoin base-encoding format:
       <section anchor="serializing-md" title="Serializing the Metadata">
         <t>
 To generate the value for the metadata, the metadata values are encoded in
-the <xref target="RFC7049">CBOR Data Format</xref> using the following 
+the <xref target="RFC7049">CBOR Data Format</xref> using the following
 algorithm:
         <list style="numbers">
           <t>
@@ -419,7 +419,14 @@ VSCp6jh4dgcufL16tWrHREiSYESEGP1J75yXCvAdvKPr7nb5aYujLeay8Ww
   <section anchor="acknowledgements" title="Acknowledgements">
     <t>
 The editors would like to thank the following individuals for feedback on and
-implementations of the specification (in alphabetical order):
+implementations of the specification (in alphabetical order): TBD
+    </t>
+    <t>
+Portions of the work on this specification have been funded by the United
+States Department of Homeland Security's Science and Technology Directorate
+under contract HSHQDC-17-C-00019. The content of this specification does not
+necessarily reflect the position or the policy of the U.S. Government and no
+official endorsement should be inferred.
     </t>
   </section>
 </back>
