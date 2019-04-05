@@ -39,5 +39,6 @@ mailing list as well.
 ### Other useful links
 * [RFC6920 - Naming Things with Hashes](https://tools.ietf.org/html/rfc6920)
 * [Magnet URI Scheme](https://en.wikipedia.org/wiki/Magnet_URI_scheme)
+* [Hash URI Specification (Initial Draft)](https://github.com/hash-uri/hash-uri)
 * [Resource Integrity Proofs](https://github.com/WebOfTrustInfo/rwot7/blob/master/final-documents/resource-integrity-proofs.md)
 * [Public group email archive](https://lists.w3.org/Archives/Public/public-credentials/)
