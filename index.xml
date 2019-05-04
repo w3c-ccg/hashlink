@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-sporny-hashlink-02">
+  docName="draft-sporny-hashlink-03">
 <front>
 
   <title>Cryptographic Hyperlinks</title>
@@ -31,7 +31,7 @@
     </address>
   </author>
 
-  <date month="December" year="2018" />
+  <date month="May" year="2019" />
   <area>Security</area>
   <workgroup />
   <keyword>hyperlink</keyword>
@@ -172,6 +172,15 @@ A hashlink may be associated with exactly one Content Type that may be used
 in protocols that support content types, such as HTTP's Accept header.
         </t>
       </section>
+      <section anchor="md-x" title="Experimental Metadata">
+        <t>
+Application developers often need to express other important metadata related
+to their specific application. These developers MUST use this field to do so.
+Data expressed in this field MAY conflict with keys chosen by other developers
+in other applications. Experimental fields that become widely used are expected
+to be standardized and become core metadata fields.
+        </t>
+      </section>
     </section>
   </section>
 
@@ -250,6 +259,14 @@ map with a value that is a UTF-8 byte string (0x6) and the
 value of the content type.
           </t>
           <t>
+If experimental metadata exists, add a CBOR key of 13 (0x0d) and encode it
+as a map by creating a raw output map (CBOR major type 5). For each item
+in the map, serialize to CBOR where the CBOR major types, the key name,
+and the value is derived from the input data. For example a key of "foo" and a
+value of 200 would be encoded as a CBOR major type of 2 for the key and a
+CBOR major type of 0 for the value.
+          </t>
+          <t>
 Generate the multibase value by encoding the raw output map using the
 Multibase Data Format.
           </t>
@@ -259,6 +276,38 @@ containing a single URL ("http://example.org/hw.txt") with a content type
 of "text/plain" expressed using the base-58 Bitcoin base-encoding format:
           <figure>
             <artwork>zuh8iaLobXC8g9tfma1CSTtYBakXeSTkHrYA5hmD4F7dCLw8XYwZ1GWyJ3zwF</artwork>
+          </figure>
+        </t>
+      </section>
+
+      <section anchor="serializing-md" title="Deserializing the Metadata">
+        <t>
+To deserialize the metadata, the "Serializing the Metadata" algorithm is
+reversed. Implementers MUST use the following table to deserialize keys to
+JSON:
+        </t>
+
+        <texttable anchor="mh-registry-table" title="Multihash Algorithms Registry">
+          <ttcol align="center">Key (hex)</ttcol>
+          <ttcol align="center">JSON key</ttcol>
+          <ttcol align="center">JSON value</ttcol>
+          <c>0x0f</c><c>"url"</c><c>Array of strings</c>
+          <c>0x0e</c><c>"content-type"</c><c>string</c>
+          <c>0x0d</c><c>"experimental"</c><c>JSON Object</c>
+        </texttable>
+
+        <t>
+The example below demonstrates the output of the algorithm above for metadata
+containing a single URL ("http://example.org/hw.txt") with a content type
+of "text/plain", and an experimental metadata key of "foo" and value of 123:
+          <figure>
+            <artwork>{
+  "url": ["http://example.org/hw.txt"],
+  "content-type": "text/plain",
+  "experimental": {
+    "foo": 123
+  }
+}</artwork>
           </figure>
         </t>
       </section>
@@ -325,6 +374,22 @@ Data Format.
 Implementations MAY support algorithms and data formats in addition to the ones
 listed above.
     </t>
+  </section>
+
+  <section anchor="security" title="Security Considerations">
+    <t>
+This section documents the security attacks that are out of scope for this
+specification as well as known attacks and mitigations against those attacks.
+    </t>
+
+    <section anchor="sec-badhash" title="Insecure Hashing Functions">
+      <t>
+There are a number of insecure cryptographic hashing functions in deployment
+today. Among these are MD5 and SHA-1. Implementers MUST throw an error by
+default when encoding or decoding these values. Implementers MAY provide a
+non-default library option to override the error.
+      </t>
+    </section>
   </section>
 </middle>
 
