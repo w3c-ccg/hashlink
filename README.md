@@ -27,7 +27,7 @@ while ensuring that implementation complexity is kept to a minimum.
 
 You can view an HTML version of the specification here:
 
-[https://w3c-dvcg.github.io/hashlink/](https://w3c-dvcg.github.io/hashlink/)
+[https://w3c-ccg.github.io/hashlink/](https://w3c-ccg.github.io/hashlink/)
 
 We encourage contributions meeting the [Contribution
 Guidelines](CONTRIBUTING.md).  While we prefer the creation of issues
