@@ -31,6 +31,22 @@
     </address>
   </author>
 
+  <author initials="L.R." surname="Rosenthol" fullname="Leonard Rosenthol">
+    <organization>Adobe Systems</organization>
+    <address>
+      <postal>
+        <street>345 Park Ave.</street>
+        <city>San Jose</city>
+        <region>CA</region>
+        <code>95110-2704</code>
+        <country>US</country>
+      </postal>
+      <phone>+1 800 833 6687</phone>
+      <email>lrosenth@adobe.com</email>
+      <uri>https://www.linkedin.com/in/lrosenthol/</uri>
+    </address>
+  </author>
+
   <date month="June" year="2020" />
   <area>Security</area>
   <workgroup />
