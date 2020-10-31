@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-sporny-hashlink-05">
+  docName="draft-sporny-hashlink-06">
 <front>
 
   <title>Cryptographic Hyperlinks</title>
@@ -47,7 +47,7 @@
     </address>
   </author>
 
-  <date month="June" year="2020" />
+  <date month="October" year="2020" />
   <area>Security</area>
   <workgroup />
   <keyword>hyperlink</keyword>
