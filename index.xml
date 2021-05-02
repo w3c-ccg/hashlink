@@ -10,7 +10,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc symrefs="yes" ?>
 <rfc category="std" ipr="trust200902" submissionType="independent"
-  docName="draft-sporny-hashlink-06">
+  docName="draft-sporny-hashlink-07">
 <front>
 
   <title>Cryptographic Hyperlinks</title>
