@@ -132,30 +132,6 @@ for cryptographic hyperlinks that:
          <t>Enable algorithm agility for all data model components</t>
       </list>
     </t>
-
-    <section anchor="encodings" title="Multiple Encodings">
-      <t>
-A hashlink can be encoded in two different ways, the RECOMMENDED way to
-express a hashlink is:
-        <figure>
-          <artwork>hl:&lt;resource-hash&gt;:&lt;optional-metadata&gt;</artwork>
-        </figure>
-      </t>
-      <t>
-To enable existing applications utilizing historical URL schemes to provide
-content integrity protection, hashlinks may also be encoded using URL
-parameters:
-        <figure>
-          <artwork>&lt;url&gt;?hl=&lt;resource-hash&gt;</artwork>
-        </figure>
-      </t>
-
-      <t>
-Implementers should take note that the URL parameter-based encoding mechanism
-is application specific and SHOULD NOT be used unless the URL resolver for the
-application cannot be upgraded to support the RECOMMENDED encoding.
-      </t>
-    </section>
   </section>
 
   <section anchor="data-model" title="Hashlink Data Model">
@@ -342,32 +318,25 @@ zuh8iaLobXC8g9tfma1CSTtYBakXeSTkHrYA5hmD4F7dCLw8XYwZ1GWyJ3zwF</artwork>
       </section>
     </section>
 
-    <section anchor="hl-url-params" title="Hashlink as a Parameterized URL">
+    <section anchor="hl-embedded" title="Alternate Embedded Encoding">
       <t>
-An algorithm resulting in the same output as the one below MUST be used when
-encoding the hashlink data model as a set of parameters in a URL:
-        <list style="numbers">
-          <t>
-Create an empty string and assign it to the output value.
-          </t>
-          <t>
-Append the first URL in the URL metadata array to the output URL.
-          </t>
-          <t>
-Append a URL parameter with a key of "hl" and the value of the resource hash
-as generated in <xref target="serializing-rh"></xref>.
-          </t>
-        </list>
+If a hashlink is embedded in a format where colons ":" are deemed inappropriate,
+(such as an HTTP URL path, query or fragment)
+each colon SHOULD be replaced by two hyphens "--".
       </t>
-      <section anchor="ex-params" title="Hashlink as a Parameterized URL Example">
+      <t>
+The placement of any such embedding SHOULD be specified by the applicable
+protocol or application.
+      </t>
+      <section anchor="ex-embedded" title="Embedded Example">
         <t>
 The example below demonstrates a simple hashlink that provides content
 integrity protection for the "http://example.org/hw.txt" file, which has a
-content type of "text/plain":
+content type of "text/plain" (line breaks added for readability purposes):
           <figure>
-            <artwork>http://example.org/hw.txt?hl=
-zQmWvQxTqbG2Z9HPJgG57jjwR154cKhbtJenbyYTWkjgF3e
-            </artwork>
+            <artwork>hl--
+zQmWvQxTqbG2Z9HPJgG57jjwR154cKhbtJenbyYTWkjgF3e--
+zuh8iaLobXC8g9tfma1CSTtYBakXeSTkHrYA5hmD4F7dCLw8XYwZ1GWyJ3zwF</artwork>
           </figure>
         </t>
       </section>
